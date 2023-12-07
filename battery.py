@@ -42,6 +42,8 @@ class battery:
     def determineSurplus(self):
         if self.batteryLevel > self.MAX_BATTERY:
             self.batteryLevel = self.MAX_BATTERY
+        else:
+            pass
         
     
     def evalThreshold(self):
@@ -49,6 +51,8 @@ class battery:
             self.sending = True
         elif(self.batteryLevel < self.lowerThreshold):
             self.sending = False
+        else:
+            pass
         
     
     # Draw power from the battery
