@@ -8,14 +8,14 @@ class ext_power_gen:
         solarMax, windMax = self.getPowerValues()
         
         if(solarMax):
-            self.solar = 3.0
+            self.solar = 1.5
         else:
-            self.solar = 1.0
+            self.solar = 0.5
         
         if(windMax):
-            self.wind = 3.0
+            self.wind = 1.5
         else:
-            self.wind = 1.0
+            self.wind =  0.5
 
         return self.solar, self.wind
     
