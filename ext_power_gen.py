@@ -7,8 +7,7 @@ class ext_power_gen:
 
     def getSWValue(self):
         val = SW.read()
-        adj = val >> 2
-        result = val - adj
+        result = val & 0b0000000011
         return result
 
     '''
