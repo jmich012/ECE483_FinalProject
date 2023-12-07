@@ -97,7 +97,7 @@ while 1:
     # update the battery storage
     batteryLevel, useGeneratedPower = bat.updateStorage(totalGeneratedPower, False)
 
-    updateDisplay(solar,wind,batteryLevel, useGeneratedPower, False)
+    updateDisplay(solar,wind,batteryLevel, useGeneratedPower, peak)
 
     # Update the system time display
     refreshTime()
