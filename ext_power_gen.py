@@ -12,23 +12,36 @@ class ext_power_gen:
     '''
     get the values for the current day's power generation
     '''
-    def generatePower(self):
+    def getPowerValues(self):
         swValue = self.getSWValue()
-        if(swValue == 0):
-            self.solar = 1.0 * self.factor
-            self.wind = 1.0 * self.factor
-        elif(swValue == 1):
-            self.solar = 1.0 * self.factor
-            self.wind = 3.0 * self.factor
-        elif(swValue == 2):
-            self.solar = 3.0 * self.factor
-            self.wind = 1.0 * self.factor
-        elif(swValue == 3):
-            self.solar = 3.0 * self.factor
-            self.wind = 3.0 * self.factor
+        solarMode = swValue & 0b0000000001
+        windMode = swValue & 0b0000000010
+
+        if(solarMode):
+            solarMax = True
         else:
-            self.solar = 1.0 * self.factor
-            self.wind = 1.0 * self.factor
+            solarMax = False
+        
+        if(windMode):
+            windMax = True
+        else:
+            windMax = False
+
+        return solarMax, windMax
+        
+    
+    def generatePower(self):
+        solarMax, windMax = self.getPowerValues()
+        
+        if(solarMax):
+            self.solar = 3.0
+        else:
+            self.solar = 1.0
+        
+        if(windMax):
+            self.wind = 3.0
+        else:
+            self.wind = 1.0
 
         return self.solar, self.wind
 
