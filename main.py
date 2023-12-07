@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 from ext_power_gen import ext_power_gen
 from battery import battery
+from datetime import datetime
 import LCD
 import LEDR
+import HEX
 import KEY
 
 powerGen = ext_power_gen()
@@ -12,6 +14,7 @@ useGeneratedPower = False
 
 LEDR.open_dev()
 LCD.open_dev()
+HEX.open_dev()
 KEY.open_dev()
 
 """
@@ -22,6 +25,17 @@ LCD.erase()
 LCD.clear()
 
 
+
+# Function that takes no arguments and refreshes the HEX displays with the current system time
+def refreshTime():
+    # Get the hours, minutes, and seconds of the system time
+    now = datetime.now()
+    hour = now.hour
+    minute = now.minute
+    second = now.second
+    time_str = "{:02d}{:02d}{:02d}".format(hour, minute, second)
+    result = int(time_str)
+    HEX.set(result)
 
 def updateDisplay(solar, wind, batteryLevel, useGeneratedPower, peak):
     # build the battery percentage msg
@@ -84,3 +98,6 @@ while 1:
     batteryLevel, useGeneratedPower = bat.updateStorage(totalGeneratedPower, False)
 
     updateDisplay(solar,wind,batteryLevel, useGeneratedPower, False)
+
+    # Update the system time display
+    refreshTime()
