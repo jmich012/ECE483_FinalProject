@@ -13,7 +13,7 @@ class battery:
         self.batteryLevel += kiloWattsGenerated
 
         if self.batteryLevel >= self.MAX_BATTERY:
-            return 
+            return self.batteryLevel, self.continueSending 
 
         if(self.batteryLevel > self.MAX_BATTERY * 0.8):
             self.sendPower()
@@ -21,6 +21,7 @@ class battery:
             self.sendPower()
         elif(self.batteryLevel < self.MAX_BATTERY * 0.25):
             self.continueSending = False
+
         return self.batteryLevel, self.continueSending
 
 
