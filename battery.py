@@ -6,11 +6,11 @@ class battery:
         self.factor = 1
 
     def updateStorage(self, kiloWattsGenerated, peak):
-        if peak:
+        if peak != 0:
             self.factor = 2
         else:
             self.factor = 1
-            
+
         self.batteryLevel += kiloWattsGenerated
 
         if self.batteryLevel > self.MAX_BATTERY:
