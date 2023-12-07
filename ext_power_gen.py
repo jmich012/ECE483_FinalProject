@@ -26,6 +26,9 @@ class ext_power_gen:
         elif(swValue == 3):
             solar = 3.0
             wind = 3.0
+        else:
+            solar = 1.0
+            wind = 1.0
 
         return solar, wind
 
