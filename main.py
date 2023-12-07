@@ -71,14 +71,14 @@ def updateDisplay(solar, wind, batteryLevel, useGeneratedPower, peak):
 
     # msg for high or low wind gen
     msg = "Wind: MIN"
-    if(wind == 0.5):
+    if(wind == 0.75):
         msg = "Wind: MAX"
 
     LCD.text(0,char_y - 5, msg)
 
     # msg for high or low solar gen
     msg = "Solar: MIN"
-    if(solar == 0.5):
+    if(solar == 0.75):
         msg = "Solar: MAX"
 
     LCD.text(0,char_y - 6, msg)
