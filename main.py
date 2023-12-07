@@ -100,6 +100,8 @@ while 1:
     # turn on LEDR[0] (most right) if receiving power from Grid
     if(not useGeneratedPower):
        LEDR.set(1)
+    else:
+        LEDR.set(0)
 
     updateDisplay(solar,wind,batteryLevel, useGeneratedPower, peak)
 
