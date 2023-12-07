@@ -6,6 +6,7 @@ import LCD
 import LEDR
 import HEX
 import KEY
+import SW
 
 powerGen = ext_power_gen()
 bat = battery()
@@ -16,6 +17,7 @@ LEDR.open_dev()
 LCD.open_dev()
 HEX.open_dev()
 KEY.open_dev()
+SW.open_dev()
 
 """
 needed for the writing to the LCD screen
@@ -86,7 +88,7 @@ def updateDisplay(solar, wind, batteryLevel, useGeneratedPower, peak):
 
 
 while 1:
-    peak = KEY.read()
+    peak = SW.read() >> 3
     print(peak)
     
     # get the current values of the solar panels and wind turbine
