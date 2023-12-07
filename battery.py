@@ -55,7 +55,7 @@ class battery:
     
     # Draw power from the battery
     def sendPower(self):
-        baseConsumption = 2
+        baseConsumption = 1.5
         consumption = baseConsumption * self.factor
         self.batteryLevel -= consumption
 
