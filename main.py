@@ -92,6 +92,10 @@ while 1:
     
     # get the current values of the solar panels and wind turbine
     solar, wind = powerGen.generatePower()
+    print("solar: ")
+    print(solar)
+    print("wind: ")
+    print(wind)
     totalGeneratedPower = solar + wind
 
     # update the battery storage
