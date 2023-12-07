@@ -4,9 +4,10 @@ class ext_power_gen:
     def __init__(self):
         self.solar = 1
         self.wind = 1
+        self.adj = SW.read() >> 2
 
     def getSWValue(self):
-        val = SW.read()
+        val = SW.read() - self.adj
         return val
 
     '''
