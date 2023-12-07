@@ -14,6 +14,7 @@ class battery:
 
         # Increase the battery level by the power generated, set in main.py
         self.batteryLevel += kiloWattsGenerated
+        print(self.batteryLevel)
 
         # Determine if there is a surplus of battery storage and correct for MAX
         self.determineSurplus()
