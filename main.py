@@ -87,6 +87,7 @@ def updateDisplay(solar, wind, batteryLevel, useGeneratedPower, peak):
 
 while 1:
     peak = KEY.read()
+    print(peak)
     
     # get the current values of the solar panels and wind turbine
     solar, wind = powerGen.generatePower()
