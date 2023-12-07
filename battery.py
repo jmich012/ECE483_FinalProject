@@ -25,6 +25,9 @@ class battery:
         if(self.sending):
             self.sendPower()
 
+        if(self.batteryLevel < 30.0):
+            print(self.batteryLevel)
+
         return self.batteryLevel, self.sending
     
     
@@ -35,13 +38,14 @@ class battery:
     
     def setFactor(self, peak):
         if peak:
-            self.factor = 2
+            self.factor = 2.5
         else:
             self.factor = 1
     
     def determineSurplus(self):
         if self.batteryLevel > self.MAX_BATTERY:
             self.batteryLevel = self.MAX_BATTERY
+        
     
     def evalThreshold(self):
         if(self.batteryLevel > self.upperThreshold):
