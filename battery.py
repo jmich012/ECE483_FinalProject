@@ -10,9 +10,11 @@ class battery:
             self.factor = 2
         else:
             self.factor = 1
+            
         self.batteryLevel += kiloWattsGenerated
 
-        if self.batteryLevel >= self.MAX_BATTERY:
+        if self.batteryLevel > self.MAX_BATTERY:
+            self.batteryLevel = self.MAX_BATTERY
             return self.batteryLevel, self.continueSending 
 
         if(self.batteryLevel > self.MAX_BATTERY * 0.8):
