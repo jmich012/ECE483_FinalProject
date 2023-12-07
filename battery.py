@@ -25,9 +25,6 @@ class battery:
         if(self.sending):
             self.sendPower()
 
-        if(self.batteryLevel < 30.0):
-            print(self.batteryLevel)
-
         return self.batteryLevel, self.sending
     
     
@@ -50,9 +47,9 @@ class battery:
     def evalThreshold(self):
         if(self.batteryLevel > self.upperThreshold):
             self.sending = True
-        
-        if(self.batteryLevel < self.lowerThreshold):
+        elif(self.batteryLevel < self.lowerThreshold):
             self.sending = False
+        
     
     # Draw power from the battery
     def sendPower(self):
