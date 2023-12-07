@@ -93,6 +93,7 @@ while 1:
     # get the current values of the solar panels and wind turbine
     solar, wind = powerGen.generatePower()
     totalGeneratedPower = solar + wind
+    print(totalGeneratedPower)
 
     # update the battery storage
     batteryLevel, useGeneratedPower = bat.updateStorage(totalGeneratedPower, peak)
