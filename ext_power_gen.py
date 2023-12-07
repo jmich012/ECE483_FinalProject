@@ -5,7 +5,6 @@ class ext_power_gen:
     global wind
 
     def getSWValue(self):
-        SW.open_dev()
         val = SW.read()
         return val
 
