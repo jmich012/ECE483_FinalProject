@@ -3,6 +3,27 @@ import SW
 class ext_power_gen:
     def __init__(self):
         self.factor = 0.8
+        
+    def generatePower(self):
+        solarMax, windMax = self.getPowerValues()
+        
+        if(solarMax):
+            self.solar = 3.0
+        else:
+            self.solar = 1.0
+        
+        if(windMax):
+            self.wind = 3.0
+        else:
+            self.wind = 1.0
+
+        return self.solar, self.wind
+    
+
+
+
+
+
 
     def getSWValue(self):
         val = SW.read()
@@ -28,20 +49,4 @@ class ext_power_gen:
             windMax = False
 
         return solarMax, windMax
-        
-    
-    def generatePower(self):
-        solarMax, windMax = self.getPowerValues()
-        
-        if(solarMax):
-            self.solar = 3.0
-        else:
-            self.solar = 1.0
-        
-        if(windMax):
-            self.wind = 3.0
-        else:
-            self.wind = 1.0
-
-        return self.solar, self.wind
 
