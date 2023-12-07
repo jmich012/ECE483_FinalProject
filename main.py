@@ -92,13 +92,13 @@ while 1:
     print(peak)
     
     # get the current values of the solar panels and wind turbine
-    #solar, wind = powerGen.generatePower()
-    #totalGeneratedPower = solar + wind
+    solar, wind = powerGen.generatePower()
+    totalGeneratedPower = solar + wind
 
     # update the battery storage
-    #batteryLevel, useGeneratedPower = bat.updateStorage(totalGeneratedPower, peak)
+    batteryLevel, useGeneratedPower = bat.updateStorage(totalGeneratedPower, peak)
 
-    #updateDisplay(solar,wind,batteryLevel, useGeneratedPower, peak)
+    updateDisplay(solar,wind,batteryLevel, useGeneratedPower, peak)
 
     # Update the system time display
-    #refreshTime()
+    refreshTime()
